@@ -5,11 +5,11 @@ FROM node:8-slim
 RUN apt-get update \
     && apt-get install -yq libgconf-2-4 libsecret-1-dev \
     && apt-get install -y wget --no-install-recommends \
+    && apt-get install -y procps \
     && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
     && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
     && apt-get update \
     && apt-get install $(apt-cache depends google-chrome-unstable | grep Depends | sed "s/.*ends:\ //" | tr '\n' ' ') -y --no-install-recommends
-    && apt-get update && apt-get install -y procps
 
 # Install deps used by npm packages & cleanup
 RUN apt-get install -yq git make g++ \
