@@ -16,7 +16,7 @@ RUN apt-get update \
 # Install deps used by npm packages & cleanup
 RUN apt-get install -yq git make g++ \
     && rm -rf /var/lib/apt/lists/* \
-    && apt-get purge --auto-remove -y curl \
+    && apt-get purge --auto-remove -y \
     && rm -rf /src/*.deb
 
 CMD echo "This image is part of Gitlab CI automated testing environment"
