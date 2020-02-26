@@ -1,4 +1,4 @@
-FROM node:8-slim
+FROM node:12-slim
 
 # This part of script was taken from Puppeteer troupleshooting page
 # https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md
